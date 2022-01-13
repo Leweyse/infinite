@@ -1,86 +1,74 @@
-import { useEffect, useRef } from "react";
-import { getRandom } from "../../../utils";
-import { Img } from "../../../store";
 
-import Nav from "../Nav/Nav";
-import { Template1, Template2, Template3 } from  "../Templates";
 
-function Section() {
-    // IMG data
-    const imgData = new Img();
-    imgData._setValues(Math.random());
-    
-    // Variables related to IMG data
-    const imageData = imgData._getValues();
-    const randImg = imageData.img;
-    const imageColor = imageData.clr;
-    const colorsArray = imageData.clrArr;
+import React from 'react';
 
-    // To reference the section element
-    const sectionRef = useRef();
+import { gsap } from 'gsap';
+import {Title} from "../../blocks";
 
-    // Using references to avoid warnings
-    // related with useEffect dependencies
-    const imageInfo = useRef({
-        url: randImg.urls.small,
-        urlRegular: randImg.urls.regular,
-        description: randImg.description,
-        credit: randImg.user.name,
-        creditUrl: randImg.links.html
-    });
 
-    const colorScheme = useRef({
-        bgColor: imageColor,
-        txtColor: "#" + colorsArray[2],
-        accent1: "#" + colorsArray[0],
-        accent2: "#" + colorsArray[1],
-        accent3: "#" + colorsArray[3]
-    });
 
-    // List of templates
-    // New templates should be added here
-    const templates = [
-        <Template1 imageInfo={imageInfo.current} scheme={colorScheme.current}/>,
-        <Template2 imageInfo={imageInfo.current} scheme={colorScheme.current}/>,
-        <Template3 imageInfo={imageInfo.current} scheme={colorScheme.current}/>
-    ]
 
-    // List of values that will be updated
-    const setValues = useRef([
-        {
-            property: '--bg',
-            value: colorScheme.current.bgColor
-        },
-        {
-            property: '--txt',
-            value: colorScheme.current.accent3
-        },
-        {
-            property: '--clr-difference',
-            value: colorScheme.current.accent1
+class Section extends React.Component {
+
+
+    constructor(props) {
+        super(props);
+        // References
+        this.sectionRef = React.createRef();
+        this.ref = React.createRef();
+
+        // Using references to avoid warnings
+        // related with useEffect dependencies
+
+    }
+
+    componentDidMount() {
+        // Set grid area
+        this._setAreas();
+        // Figure follows cursor
+    }
+
+    _setAreas() {
+        this.rowsLength = new Array(9);
+        this.columnsLength = new Array(14);
+        this.columnsValues = ['space', 'txt'];
+
+        this.columns = "";
+        this.row = "";
+        this.gridArea = "";
+
+        for (let i = 0; i < this.columnsLength.length; i++) {
+            if (i < this.columnsLength.length / 2) {
+                this.columns += `${this.columnsValues[0]} `;
+            } else {
+                this.columns += `${this.columnsValues[1]} `;
+            }
         }
-    ]);
 
-    useEffect(() => {
-        // Update new values for section component
-        setValues.current.forEach((element) => {
-            sectionRef.current.style.setProperty(element.property, element.value);
-        })
-    }, [])
+        this.row = `"${this.columns}"`;
 
-    return (
-        <>
-            <section ref={sectionRef} className={'section'}>
-                <Nav />
-                {/* 
-                    Implemented getRandom helper
-                    It returns two possible templates
-                    We choose the first one
-                */}
-                {getRandom(templates, 2)[0]}
-            </section>
-        </>
-    )
+        for (let i = 0; i < this.rowsLength.length; i++) {
+            this.gridArea += `${this.row}\n`;
+        }
+
+        this.sectionRef.current.style.setProperty('grid-template-areas', this.gridArea)
+        //gsap.to(this.ref.current, {gridArea: this.columnsValues[0]})
+
+    }
+
+
+
+    render() {
+        return (
+            <>
+                <section className={"section"} ref={this.sectionRef}>
+                    <span ref={this.ref} className={"title"}>
+                        <Title content={"A DEV"} />
+                    </span>
+                </section>
+            </>
+        )
+    }
 }
 
 export default Section;
