@@ -14,7 +14,7 @@
   - `fixed/#number_of_issue`
 
 ### **Features**
-  - `feature/client/little_description`
+  - `feature/little_description`
 
 ### **Documentation**
   - `update/readme/little_description`

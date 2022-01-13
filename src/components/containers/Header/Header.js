@@ -1,5 +1,6 @@
-import { Title, Text, Svg } from '../../blocks';
 import { gsap } from "gsap";
+
+import { Nav, Title, Text, Svg } from '../../blocks';
 
 const Header = () => {
     let timelineSquare = gsap.timeline({paused: false});
@@ -28,7 +29,7 @@ const Header = () => {
 
     return(
         <header>
-
+            <Nav />
             <Svg shape={'square'} className={'svgAbsolute svgBackground svgMedium'} fillColor={'red'} id={'square'} />
             <Svg shape={'triangle'} className={'svgAbsolute svgBackground svgMedium'} fillColor={'purple'} id={'triangle'} />
             <Svg shape={'parallelogram'} className={'svgAbsolute svgBackground svgMedium'} fillColor={'salmon'} id={'parallelogram'} />

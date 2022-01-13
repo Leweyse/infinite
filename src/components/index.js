@@ -1,18 +1,16 @@
-import { Header, Main, Nav, Section, Template1 } from './containers';
-import { Figure, Link, Text, Title, Svg, Button } from "./blocks";
+import { Header, Main, Section } from './containers';
+import { Nav, Figure, Link, Text, Title, Svg } from "./blocks";
 
 export {
 // CONTAINERS
     Header,
     Main,
-    Nav,
     Section,
-    Template1,
 // BLOCKS
+    Nav,
     Figure, 
     Link, 
     Text, 
     Title,
     Svg,
-    Button
 };
