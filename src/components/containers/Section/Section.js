@@ -1,74 +1,64 @@
-
-
-import React from 'react';
-
+import React, {useEffect} from 'react';
 import { gsap } from 'gsap';
 import {Title} from "../../blocks";
+import {useRef} from "react";
 
+export default function Section (props) {
+    const sectionRef = useRef(null);
+    const divRef = useRef(null)
 
+    useEffect(() => {
+        setAreas();
+    }, [])
 
+    function setAreas() {
+        const rowsLength = new Array(9);
+        const columnsLength = new Array(14);
+        const columnsValues = ['space', 'txt'];
 
-class Section extends React.Component {
+        let columns = "";
+        let row = "";
+        let gridArea = "";
 
-
-    constructor(props) {
-        super(props);
-        // References
-        this.sectionRef = React.createRef();
-        this.ref = React.createRef();
-
-        // Using references to avoid warnings
-        // related with useEffect dependencies
-
-    }
-
-    componentDidMount() {
-        // Set grid area
-        this._setAreas();
-        // Figure follows cursor
-    }
-
-    _setAreas() {
-        this.rowsLength = new Array(9);
-        this.columnsLength = new Array(14);
-        this.columnsValues = ['space', 'txt'];
-
-        this.columns = "";
-        this.row = "";
-        this.gridArea = "";
-
-        for (let i = 0; i < this.columnsLength.length; i++) {
-            if (i < this.columnsLength.length / 2) {
-                this.columns += `${this.columnsValues[0]} `;
+        for (let i = 0; i < columnsLength.length; i++) {
+            if (i < columnsLength.length / 2) {
+                columns += `${columnsValues[0]} `;
             } else {
-                this.columns += `${this.columnsValues[1]} `;
+                columns += `${columnsValues[1]} `;
             }
         }
 
-        this.row = `"${this.columns}"`;
+        row = `"${columns}"`;
 
-        for (let i = 0; i < this.rowsLength.length; i++) {
-            this.gridArea += `${this.row}\n`;
+        for (let i = 0; i < rowsLength.length; i++) {
+            gridArea += `${row}\n`;
         }
 
-        this.sectionRef.current.style.setProperty('grid-template-areas', this.gridArea)
-        //gsap.to(this.ref.current, {gridArea: this.columnsValues[0]})
-
+        sectionRef.current.style.setProperty('grid-template-areas', gridArea)
+        gsap.to(divRef.current, {gridArea: columnsValues[0]})
     }
 
-
-
-    render() {
-        return (
-            <>
-                <section className={"section"} ref={this.sectionRef}>
-                    <span ref={this.ref} className={"title"}>
+    return (
+        <>
+            <section className={"section"} ref={sectionRef}>
+                    <span ref={divRef} className={"title"}>
                         <Title content={"A DEV"} />
                     </span>
-                </section>
-            </>
-        )
-    }
+            </section>
+        </>
+    )
 }
 
-export default Section;
+
+
+
+
+
+
+
+
+
+
+
+
+
