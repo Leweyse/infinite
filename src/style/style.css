@@ -26,12 +26,6 @@ body,
   height: 100%;
 }
 
-button {
-  width: 6rem;
-  color: black;
-  background-color: white;
-}
-
 .figure .img {
   width: min(27.5vw, 50rem);
   aspect-ratio: 1/1;

@@ -7,7 +7,7 @@ import { Img } from "../../../store";
 import { Title } from "../../blocks";
 import { Template1, Template2, Template3 } from  "../Templates";
 
-function Section() {
+export default function Section() {
     // IMG data
     const imgData = new Img();
     imgData._setValues(Math.random());
@@ -48,26 +48,6 @@ function Section() {
         <Template3 imageInfo={imageInfo.current} scheme={colorScheme.current}/>
     ]
 
-    // List of values that will be updated
-    const setValues = useRef([
-        {
-            property: '--bg',
-            value: colorScheme.current.bgColor
-        },
-        {
-            property: '--txt',
-            value: colorScheme.current.accent3
-        },
-        {
-            property: '--clr-difference',
-            value: colorScheme.current.accent1
-        },
-        {
-            property: 'grid-template-areas',
-            value: gridAreas()
-        }
-    ]);
-
     const gridAreas = () => {
         const rowsLength = new Array(9);
         const columnsLength = new Array(14);
@@ -93,21 +73,48 @@ function Section() {
       
         return gridArea;
     }
+
+    // List of values that will be updated
+    const setValues = useRef([
+        {
+            property: '--bg',
+            value: colorScheme.current.bgColor
+        },
+        {
+            property: '--txt',
+            value: colorScheme.current.accent3
+        },
+        {
+            property: '--clr-difference',
+            value: colorScheme.current.accent1
+        },
+        {
+            property: 'grid-template-areas',
+            value: gridAreas()
+        }
+    ]);
     
     useEffect(() => {
         setValues.current.forEach((element) => {
             sectionRef.current.style.setProperty(element.property, element.value);
         });
       
-        gsap.to(divRef.current, {gridArea: "txt");
+        gsap.to(divRef.current, {gridArea: "txt"});
     }, [])
 
     return (
         <>
             <section ref={sectionRef} className={"section"}>
-                <span ref={divRef} className={"title"}>
-                    <Title content={"A DEV"} />
-                </span>
+                <div>
+                    {Array.from(Array(10)).map(el => {
+                        return (
+                            <span ref={divRef} className={"title"}>
+                                <Title content={"A DEV"} />
+                            </span>
+                        )
+                    })}
+                </div>
+
             </section>
         </>
     )
