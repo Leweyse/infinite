@@ -1,8 +1,10 @@
 import { useEffect, useRef } from "react";
+import { gsap } from 'gsap';
+
 import { getRandom } from "../../../utils";
 import { Img } from "../../../store";
 
-import { Nav } from "../../blocks";
+import { Title } from "../../blocks";
 import { Template1, Template2, Template3 } from  "../Templates";
 
 function Section() {
@@ -16,8 +18,9 @@ function Section() {
     const imageColor = imageData.clr;
     const colorsArray = imageData.clrArr;
 
-    // To reference the section element
-    const sectionRef = useRef();
+    // To reference elements
+    const sectionRef = useRef(null);
+    const divRef = useRef(null)
 
     // Using references to avoid warnings
     // related with useEffect dependencies
@@ -58,29 +61,68 @@ function Section() {
         {
             property: '--clr-difference',
             value: colorScheme.current.accent1
+        },
+        {
+            property: 'grid-template-areas',
+            value: gridAreas()
         }
     ]);
 
+    const gridAreas = () => {
+        const rowsLength = new Array(9);
+        const columnsLength = new Array(14);
+        const columnsValues = ['space', 'txt'];
+
+        let columns = "";
+        let row = "";
+        let gridArea = "";
+
+        for (let i = 0; i < columnsLength.length; i++) {
+            if (i < columnsLength.length / 2) {
+                columns += `${columnsValues[0]} `;
+            } else {
+                columns += `${columnsValues[1]} `;
+            }
+        }
+
+        row = `"${columns}"`;
+
+        for (let i = 0; i < rowsLength.length; i++) {
+            gridArea += `${row}\n`;
+        }
+      
+        return gridArea;
+    }
+    
     useEffect(() => {
-        // Update new values for section component
         setValues.current.forEach((element) => {
             sectionRef.current.style.setProperty(element.property, element.value);
-        })
+        });
+      
+        gsap.to(divRef.current, {gridArea: "txt");
     }, [])
 
     return (
         <>
-            <section ref={sectionRef} className={'section'}>
-                <Nav />
-                {/* 
-                    Implemented getRandom helper
-                    It returns two possible templates
-                    We choose the first one
-                */}
-                {getRandom(templates, 2)[0]}
+            <section ref={sectionRef} className={"section"}>
+                <span ref={divRef} className={"title"}>
+                    <Title content={"A DEV"} />
+                </span>
             </section>
         </>
     )
 }
 
-export default Section;
+
+
+
+
+
+
+
+
+
+
+
+
+
