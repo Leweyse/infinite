@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { getRandom } from "../../../utils";
 import { Img } from "../../../store";
 
-import Nav from "../Nav/Nav";
+import { Nav } from "../../blocks";
 import { Template1, Template2, Template3 } from  "../Templates";
 
 function Section() {
