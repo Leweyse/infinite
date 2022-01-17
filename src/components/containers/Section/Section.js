@@ -1,5 +1,4 @@
 import { useEffect, useRef } from "react";
-import { gsap } from 'gsap';
 
 import { getRandom } from "../../../utils";
 import { Img } from "../../../store";
@@ -20,7 +19,6 @@ export default function Section() {
 
     // To reference elements
     const sectionRef = useRef(null);
-    const divRef = useRef(null)
 
     // Using references to avoid warnings
     // related with useEffect dependencies
@@ -49,27 +47,52 @@ export default function Section() {
     ]
 
     const gridAreas = () => {
-        const rowsLength = new Array(9);
-        const columnsLength = new Array(14);
-        const columnsValues = ['space', 'txt'];
+        const rowsArray = new Array(9);
+        const columnsArray = new Array(14);
+        const gridArray = [];
+
+        let gridElements = [
+            {
+                value : 'img',
+                columns: 3,
+                rows: 3,
+                blocks: 9
+            },
+            {
+                value : 'txt',
+                columns: 3,
+                rows: 1,
+                blocks: 3
+            },
+            {
+                value : 'space',
+                columns: 1,
+                rows: 1,
+                blocks: 1
+            }
+        ];
 
         let columns = "";
         let row = "";
         let gridArea = "";
 
-        for (let i = 0; i < columnsLength.length; i++) {
-            if (i < columnsLength.length / 2) {
-                columns += `${columnsValues[0]} `;
-            } else {
-                columns += `${columnsValues[1]} `;
+        for (let i = 0; i < rowsArray.length; i++) {
+            let elem = getRandom(gridElements, 1)[0];
+
+            gridArray[i] = [];
+            
+            for (let j = 0; j < columnsArray.length; j++) {
+                
             }
         }
 
-        row = `"${columns}"`;
-
-        for (let i = 0; i < rowsLength.length; i++) {
-            gridArea += `${row}\n`;
+        for (let i = 0; i < gridElements.length; i++) {
+            let elem = getRandom(gridElements, 1)[0];
+            console.log(elem.blocks)
         }
+
+        row = `"${columns}"`;
+        gridArea += `${row}\n`;
       
         return gridArea;
     }
@@ -98,23 +121,16 @@ export default function Section() {
         setValues.current.forEach((element) => {
             sectionRef.current.style.setProperty(element.property, element.value);
         });
-      
-        gsap.to(divRef.current, {gridArea: "txt"});
     }, [])
 
     return (
         <>
             <section ref={sectionRef} className={"section"}>
-                <div>
-                    {Array.from(Array(10)).map(el => {
-                        return (
-                            <span ref={divRef} className={"title"}>
-                                <Title content={"A DEV"} />
-                            </span>
-                        )
-                    })}
-                </div>
-
+                {Array.from(Array(10)).map(el => {
+                    return (
+                        <Title content={"A DEV"} className={"title-text"} />
+                    )
+                })}
             </section>
         </>
     )

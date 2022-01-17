@@ -3,6 +3,7 @@
     --txt: white;
     --clr-difference: white;
 
+    display: grid;
     position: relative;
     height: 100vh;
     margin: 0;
@@ -11,4 +12,8 @@
     background: var(--bg);
 
     // scroll-snap-align: start;
+
+    .title-text {
+        grid-area: txt;
+    }
 }
