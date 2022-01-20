@@ -69,9 +69,9 @@ export default function Section() {
     return (
         <>
             <section ref={sectionRef} className={"section"}>
-                {Array.from(Array(10)).map(el => {
+                {Array.from(Array(10)).map((el, idx) => {
                     return (
-                        <Title content={"A DEV"} className={"title-text"} />
+                        <Title key={idx} content={"A DEV"} className={"title-text"} />
                     )
                 })}
             </section>
