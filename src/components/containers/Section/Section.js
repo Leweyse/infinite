@@ -1,10 +1,9 @@
 import { useEffect, useRef } from "react";
 
-import { getRandom } from "../../../utils";
+import { gridTemplate } from "../../../utils";
 import { Img } from "../../../store";
 
 import { Title } from "../../blocks";
-import { Template1, Template2, Template3 } from  "../Templates";
 
 export default function Section() {
     // IMG data
@@ -38,64 +37,8 @@ export default function Section() {
         accent3: "#" + colorsArray[3]
     });
 
-    // List of templates
-    // New templates should be added here
-    const templates = [
-        <Template1 imageInfo={imageInfo.current} scheme={colorScheme.current}/>,
-        <Template2 imageInfo={imageInfo.current} scheme={colorScheme.current}/>,
-        <Template3 imageInfo={imageInfo.current} scheme={colorScheme.current}/>
-    ]
-
-    const gridAreas = () => {
-        const rowsArray = new Array(9);
-        const columnsArray = new Array(14);
-        const gridArray = [];
-
-        let gridElements = [
-            {
-                value : 'img',
-                columns: 3,
-                rows: 3,
-                blocks: 9
-            },
-            {
-                value : 'txt',
-                columns: 3,
-                rows: 1,
-                blocks: 3
-            },
-            {
-                value : 'space',
-                columns: 1,
-                rows: 1,
-                blocks: 1
-            }
-        ];
-
-        let columns = "";
-        let row = "";
-        let gridArea = "";
-
-        for (let i = 0; i < rowsArray.length; i++) {
-            let elem = getRandom(gridElements, 1)[0];
-
-            gridArray[i] = [];
-            
-            for (let j = 0; j < columnsArray.length; j++) {
-                
-            }
-        }
-
-        for (let i = 0; i < gridElements.length; i++) {
-            let elem = getRandom(gridElements, 1)[0];
-            console.log(elem.blocks)
-        }
-
-        row = `"${columns}"`;
-        gridArea += `${row}\n`;
-      
-        return gridArea;
-    }
+    // Grid template
+    const template = gridTemplate();
 
     // List of values that will be updated
     const setValues = useRef([
@@ -113,10 +56,10 @@ export default function Section() {
         },
         {
             property: 'grid-template-areas',
-            value: gridAreas()
+            value: template
         }
     ]);
-    
+
     useEffect(() => {
         setValues.current.forEach((element) => {
             sectionRef.current.style.setProperty(element.property, element.value);
