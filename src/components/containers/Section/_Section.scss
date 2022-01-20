@@ -8,6 +8,9 @@
     height: 100vh;
     margin: 0;
 
+    grid-template-columns: repeat(2, 0.15fr) repeat(10, 0.1fr) repeat(2, 0.15fr);
+    grid-template-rows: repeat(3, 0.3fr) repeat(4, 0.25fr) repeat(2, 0.3fr);
+
     color: var(--txt);
     background: var(--bg);
 
