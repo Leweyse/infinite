@@ -27,7 +27,7 @@ body,
 }
 
 .figure .img {
-  width: min(27.5vw, 50rem);
+  width: min(27.5vw, 100%);
   aspect-ratio: 1/1;
   -o-object-fit: cover;
      object-fit: cover;
@@ -36,8 +36,17 @@ body,
 }
 .figure figcaption {
   position: absolute;
-  right: 5px;
-  bottom: 5px;
+  left: 50%;
+  bottom: 10px;
+  transform: translateX(-50%);
+}
+.figure figcaption, .figure figcaption > * {
+  font-family: var(--ff-header-text);
+}
+.figure figcaption > * {
+  color: var(--clr-difference);
+  text-decoration: none;
+  outline: none;
 }
 
 .link {
@@ -210,6 +219,9 @@ main {
   grid-template-rows: repeat(3, 0.3fr) repeat(4, 0.25fr) repeat(2, 0.3fr);
   color: var(--txt);
   background: var(--bg);
+}
+.section .figure-img {
+  grid-area: img;
 }
 .section .title-text {
   grid-area: txt;
