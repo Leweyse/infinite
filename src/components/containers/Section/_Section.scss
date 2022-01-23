@@ -16,6 +16,10 @@
 
     // scroll-snap-align: start;
 
+    .figure-img {
+        grid-area: img;
+    }
+
     .title-text {
         grid-area: txt;
     }
