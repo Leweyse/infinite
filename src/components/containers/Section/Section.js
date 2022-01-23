@@ -12,7 +12,7 @@ export default function Section() {
     
     // Variables related to IMG data
     const imageData = imgData._getValues();
-    // const randImg = imageData.img;
+    const randImg = imageData.img;
     const imageColor = imageData.clr;
     const colorsArray = imageData.clrArr;
 
@@ -21,13 +21,13 @@ export default function Section() {
 
     // Using references to avoid warnings
     // related with useEffect dependencies
-    // const imageInfo = useRef({
-    //     url: randImg.urls.small,
-    //     urlRegular: randImg.urls.regular,
-    //     description: randImg.description,
-    //     credit: randImg.user.name,
-    //     creditUrl: randImg.links.html
-    // });
+    const imageInfo = useRef({
+        url: randImg.urls.regular,
+        urlRegular: randImg.urls.regular,
+        description: randImg.description,
+        credit: randImg.user.name,
+        creditUrl: randImg.links.html
+    });
 
     const colorScheme = useRef({
         bgColor: imageColor,
