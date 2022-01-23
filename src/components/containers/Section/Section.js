@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-import { gridTemplate } from "../../../utils";
+import { GridRandomTemplate } from "../../../utils";
 import { Img } from "../../../store";
 
 import { Title } from "../../blocks";
@@ -38,7 +38,8 @@ export default function Section() {
     });
 
     // Grid template
-    const template = gridTemplate();
+    const newGrid = new GridRandomTemplate();
+    const template = newGrid.gridTemplateAreas;
 
     // List of values that will be updated
     const setValues = useRef([
