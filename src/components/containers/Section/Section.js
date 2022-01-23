@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 import { GridRandomTemplate } from "../../../utils";
 import { Img } from "../../../store";
 
-import { Title } from "../../blocks";
+import { Title, Figure, Nav } from "../../blocks";
 
 export default function Section() {
     // IMG data
@@ -70,11 +70,9 @@ export default function Section() {
     return (
         <>
             <section ref={sectionRef} className={"section"}>
-                {Array.from(Array(10)).map((el, idx) => {
-                    return (
-                        <Title key={idx} content={"A DEV"} className={"title-text"} />
-                    )
-                })}
+                <Nav />
+                <Title content={"A DEV"} className={"title-text"} />
+                <Figure imageInfo={imageInfo.current} className={"figure-img"} />
             </section>
         </>
     )
