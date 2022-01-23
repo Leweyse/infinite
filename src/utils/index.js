@@ -1,6 +1,6 @@
 import hexToHSL from './helpers/color/hexToHSL';
 import getRandom from './helpers/data/getRandom';
-import gridTemplate from './helpers/data/gridTemplate';
+import GridRandomTemplate from './helpers/data/gridTemplate';
 
 export {
     // COLOR
@@ -8,5 +8,5 @@ export {
     
     // DATA
     getRandom,
-    gridTemplate,
+    GridRandomTemplate,
 };
