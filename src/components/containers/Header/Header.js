@@ -35,8 +35,8 @@ const Header = () => {
             <Svg shape={'parallelogram'} className={'svgAbsolute svgBackground svgMedium'} fillColor={'salmon'} id={'parallelogram'} />
             <Svg shape={'circle'} className={'svgAbsolute svgBackground svgMedium'} fillColor={'teal'} id={'circle'} />
             <Svg shape={'blob'} className={'svgAbsolute svgBackground svgMedium'} fillColor={'#93E9BE'} id={'blob'} />
-            <Title id={"header_title"} content={"Welcome to the Infinite Scroll"} />
-            <Text id={"header_text"} text={"Scroll down and explore our templates"} />
+            <Title id={"header_title"} content={"Welcome to Infinite"} />
+            <Text id={"header_text"} text={"Scroll down and explore"} />
         </header>
     )
 }
