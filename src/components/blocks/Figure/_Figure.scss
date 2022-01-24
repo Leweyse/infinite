@@ -10,7 +10,11 @@
     figcaption {
         position: absolute;
         left: 50%;
-        bottom: 10px;
+        bottom: 30px;
+        width: 35%;
+
+        text-align: center;
+
         transform: translateX(-50%);
 
         &,
