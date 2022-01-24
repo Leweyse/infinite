@@ -68,9 +68,9 @@ class GridRandomTemplate {
         if (
             // Avoid conflict with Navbar position
             rand[0].coord[0] >= 2 && // Position from left
-            rand[0].coord[0] <= ((this.columnsNum - rowLength) - 2) && // Position from right
+            rand[0].coord[0] <= ((this.columnsNum - columnLength) - 2) && // Position from right
             rand[0].coord[1] >= 2 && // Position from top
-            rand[0].coord[1] <= ((this.rowsNum - columnLength) - 2) // Position from bottom
+            rand[0].coord[1] <= ((this.rowsNum - rowLength) - 2) // Position from bottom
         ) {
             // Loop to remove coordinates not available
             for (let i = 0; i < rowLength; i++) {
