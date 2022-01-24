@@ -26,6 +26,9 @@ body,
   height: 100%;
 }
 
+.figure {
+  z-index: 1;
+}
 .figure .img {
   width: min(27.5vw, 100%);
   aspect-ratio: 1/1;
@@ -63,6 +66,7 @@ body,
   --ff-title: "MuseoModerno", cursive;
   font-size: 2.75rem;
   font-family: var(--ff-title);
+  z-index: 2;
 }
 
 .svgSmall {
