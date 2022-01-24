@@ -1,11 +1,9 @@
 import { useEffect, useRef } from "react";
-import { gsap } from 'gsap';
 
-import { getRandom } from "../../../utils";
+import { gridTemplate } from "../../../utils";
 import { Img } from "../../../store";
 
 import { Title } from "../../blocks";
-import { Template1, Template2, Template3 } from  "../Templates";
 
 export default function Section() {
     // IMG data
@@ -14,23 +12,22 @@ export default function Section() {
     
     // Variables related to IMG data
     const imageData = imgData._getValues();
-    const randImg = imageData.img;
+    // const randImg = imageData.img;
     const imageColor = imageData.clr;
     const colorsArray = imageData.clrArr;
 
     // To reference elements
     const sectionRef = useRef(null);
-    const divRef = useRef(null)
 
     // Using references to avoid warnings
     // related with useEffect dependencies
-    const imageInfo = useRef({
-        url: randImg.urls.small,
-        urlRegular: randImg.urls.regular,
-        description: randImg.description,
-        credit: randImg.user.name,
-        creditUrl: randImg.links.html
-    });
+    // const imageInfo = useRef({
+    //     url: randImg.urls.small,
+    //     urlRegular: randImg.urls.regular,
+    //     description: randImg.description,
+    //     credit: randImg.user.name,
+    //     creditUrl: randImg.links.html
+    // });
 
     const colorScheme = useRef({
         bgColor: imageColor,
@@ -40,39 +37,8 @@ export default function Section() {
         accent3: "#" + colorsArray[3]
     });
 
-    // List of templates
-    // New templates should be added here
-    const templates = [
-        <Template1 imageInfo={imageInfo.current} scheme={colorScheme.current}/>,
-        <Template2 imageInfo={imageInfo.current} scheme={colorScheme.current}/>,
-        <Template3 imageInfo={imageInfo.current} scheme={colorScheme.current}/>
-    ]
-
-    const gridAreas = () => {
-        const rowsLength = new Array(9);
-        const columnsLength = new Array(14);
-        const columnsValues = ['space', 'txt'];
-
-        let columns = "";
-        let row = "";
-        let gridArea = "";
-
-        for (let i = 0; i < columnsLength.length; i++) {
-            if (i < columnsLength.length / 2) {
-                columns += `${columnsValues[0]} `;
-            } else {
-                columns += `${columnsValues[1]} `;
-            }
-        }
-
-        row = `"${columns}"`;
-
-        for (let i = 0; i < rowsLength.length; i++) {
-            gridArea += `${row}\n`;
-        }
-      
-        return gridArea;
-    }
+    // Grid template
+    const template = gridTemplate();
 
     // List of values that will be updated
     const setValues = useRef([
@@ -90,31 +56,24 @@ export default function Section() {
         },
         {
             property: 'grid-template-areas',
-            value: gridAreas()
+            value: template
         }
     ]);
-    
+
     useEffect(() => {
         setValues.current.forEach((element) => {
             sectionRef.current.style.setProperty(element.property, element.value);
         });
-      
-        gsap.to(divRef.current, {gridArea: "txt"});
     }, [])
 
     return (
         <>
             <section ref={sectionRef} className={"section"}>
-                <div>
-                    {Array.from(Array(10)).map(el => {
-                        return (
-                            <span ref={divRef} className={"title"}>
-                                <Title content={"A DEV"} />
-                            </span>
-                        )
-                    })}
-                </div>
-
+                {Array.from(Array(10)).map((el, idx) => {
+                    return (
+                        <Title key={idx} content={"A DEV"} className={"title-text"} />
+                    )
+                })}
             </section>
         </>
     )
