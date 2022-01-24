@@ -83,6 +83,7 @@ class GridRandomTemplate {
 
                     // Remove object from available coordinates
                     if (idx > -1) this.coordinates.splice(idx, 1);
+                    else return this._helperGetRandomCoord(rowLength, columnLength);
                 }
             }
 
