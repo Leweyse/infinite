@@ -6,12 +6,12 @@ const Figure = React.forwardRef ((props, ref) => {
     return (
         <figure ref={ref} className={`figure ${props.className}`}>
             <img
-                id={imageInfo.id}
+                id={props.id}
                 src={imageInfo.url}
                 alt={imageInfo.description}
                 className={"img"}
             />
-            <figcaption>Img by {imageInfo.credit} on <a href={imageInfo.link}>Unsplash</a></figcaption>
+            <figcaption>Img by <a href={imageInfo.creditUrl}>{imageInfo.credit}</a> on Unsplash</figcaption>
         </figure>
     )
 });

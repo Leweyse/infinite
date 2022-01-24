@@ -1,6 +1,6 @@
 .figure {
     .img {
-        width: min(27.5vw, 50rem);
+        width: min(27.5vw, 100%);
 
         aspect-ratio: 1 / 1;
         object-fit: cover;
@@ -9,40 +9,19 @@
 
     figcaption {
         position: absolute;
-        right: 5px;
-        bottom: 5px;
+        left: 50%;
+        bottom: 10px;
+        transform: translateX(-50%);
+
+        &,
+        & > * {
+            font-family: var(--ff-header-text);
+        }
+
+        & > * {
+            color: var(--clr-difference);
+            text-decoration: none;
+            outline: none;
+        }
     }
 }
-
-// .imgLeft {
-//     margin-left: 5%;
-// }
-
-// .imgRight{
-//     margin-left: auto;
-//     margin-right: 5%;
-// }
-
-// .imgCenter {
-//     margin: auto;
-// }
-
-// .imgSmall {
-//     height: 200px;
-//     width: 200px;
-// }
-
-// .imgMedium{
-//     height: 400px;
-//     width: 400px;
-// }
-
-// .imgLarge {
-//     height: 600px;
-//     width: 600px;
-// }
-
-// .colorTest {
-//     height: 100px;
-//     width: 100px;
-// }

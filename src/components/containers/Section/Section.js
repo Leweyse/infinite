@@ -1,9 +1,9 @@
 import { useEffect, useRef } from "react";
 
-import { gridTemplate } from "../../../utils";
+import { GridRandomTemplate } from "../../../utils";
 import { Img } from "../../../store";
 
-import { Title } from "../../blocks";
+import { Title, Figure, Nav } from "../../blocks";
 
 export default function Section() {
     // IMG data
@@ -12,7 +12,7 @@ export default function Section() {
     
     // Variables related to IMG data
     const imageData = imgData._getValues();
-    // const randImg = imageData.img;
+    const randImg = imageData.img;
     const imageColor = imageData.clr;
     const colorsArray = imageData.clrArr;
 
@@ -21,13 +21,13 @@ export default function Section() {
 
     // Using references to avoid warnings
     // related with useEffect dependencies
-    // const imageInfo = useRef({
-    //     url: randImg.urls.small,
-    //     urlRegular: randImg.urls.regular,
-    //     description: randImg.description,
-    //     credit: randImg.user.name,
-    //     creditUrl: randImg.links.html
-    // });
+    const imageInfo = useRef({
+        url: randImg.urls.regular,
+        urlRegular: randImg.urls.regular,
+        description: randImg.description,
+        credit: randImg.user.name,
+        creditUrl: randImg.links.html
+    });
 
     const colorScheme = useRef({
         bgColor: imageColor,
@@ -38,7 +38,8 @@ export default function Section() {
     });
 
     // Grid template
-    const template = gridTemplate();
+    const newGrid = new GridRandomTemplate();
+    const template = newGrid.gridTemplateAreas;
 
     // List of values that will be updated
     const setValues = useRef([
@@ -69,11 +70,9 @@ export default function Section() {
     return (
         <>
             <section ref={sectionRef} className={"section"}>
-                {Array.from(Array(10)).map((el, idx) => {
-                    return (
-                        <Title key={idx} content={"A DEV"} className={"title-text"} />
-                    )
-                })}
+                <Nav />
+                <Title content={"A DEV"} className={"title-text"} />
+                <Figure imageInfo={imageInfo.current} className={"figure-img"} />
             </section>
         </>
     )
