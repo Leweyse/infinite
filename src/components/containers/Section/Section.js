@@ -66,6 +66,21 @@ export default function Section() {
     ]);
 
     useEffect(() => {
+        const firstContrast = (new ContrastRatio(colorScheme.current.bgColor, colorScheme.current.accent3)).ratio;
+        const secondContrast = (new ContrastRatio(colorScheme.current.bgColor, colorScheme.current.accent1)).ratio;
+
+        if (
+            firstContrast < 1.9 &&
+            secondContrast < 1.9 &&
+            (Math.max(firstContrast, secondContrast) - Math.min(firstContrast, secondContrast) < 0.42))
+        {
+            setValues.current[3].value = 'exclusion';
+        } else if (firstContrast >= 4 || secondContrast >= 4) {
+            setValues.current[3].value = 'unset';
+        } else {
+            setValues.current[3].value = 'color-dodge';
+        }
+
         setValues.current.forEach((element) => {
             sectionRef.current.style.setProperty(element.property, element.value);
         });
