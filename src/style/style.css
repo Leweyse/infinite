@@ -26,10 +26,8 @@ body,
   height: 100%;
 }
 
-.figure {
-  z-index: 1;
-}
 .figure .img {
+  position: relative;
   width: min(27.5vw, 100%);
   aspect-ratio: 1/1;
   -o-object-fit: cover;
@@ -47,6 +45,7 @@ body,
 }
 .figure figcaption, .figure figcaption > * {
   font-family: var(--ff-header-text);
+  mix-blend-mode: var(--contrast);
 }
 .figure figcaption > * {
   color: var(--clr-difference);
@@ -60,12 +59,14 @@ body,
 
 .text {
   font-size: 1rem;
+  mix-blend-mode: var(--contrast);
 }
 
 .title {
   --ff-title: "MuseoModerno", cursive;
   font-size: 2.75rem;
   font-family: var(--ff-title);
+  mix-blend-mode: var(--contrast);
   z-index: 2;
 }
 
@@ -137,6 +138,7 @@ nav a {
   text-decoration: none;
   font-size: 1.15rem;
   font-family: var(--ff-nav-link);
+  mix-blend-mode: var(--contrast);
   z-index: 1111;
 }
 nav a::after {
@@ -216,6 +218,7 @@ main {
   --bg: black;
   --txt: white;
   --clr-difference: white;
+  --contrast: unset;
   display: grid;
   position: relative;
   height: 100vh;
