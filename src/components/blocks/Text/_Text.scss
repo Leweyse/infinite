@@ -1,5 +1,5 @@
 .text {
-    font-size: 1rem;
+    font-size: clamp(1rem, 3vw, 1.75rem);
 
     mix-blend-mode: var(--contrast);
 }  

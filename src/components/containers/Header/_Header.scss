@@ -18,14 +18,15 @@ header {
 
         color: var(--clr-difference);
         text-align: center;
+
+        z-index: 1;
     }
 
     #header_title {
         grid-row: 4 / 5;
         
+        font-size: clamp(2rem, 10vw, 7rem);
         font-family: var(--ff-header-title);
-        font-size: 5rem;
-        z-index: 1;
     }
 
     #header_text {

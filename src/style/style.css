@@ -38,12 +38,13 @@ body,
 .figure figcaption {
   position: absolute;
   left: 50%;
-  bottom: 30px;
+  bottom: max(1rem, 2.5%);
   width: 35%;
   text-align: center;
   transform: translateX(-50%);
 }
 .figure figcaption, .figure figcaption > * {
+  font-size: clamp(0.5rem, 3vw, 1.15rem);
   font-family: var(--ff-header-text);
   mix-blend-mode: var(--contrast);
 }
@@ -58,13 +59,13 @@ body,
 }
 
 .text {
-  font-size: 1rem;
+  font-size: clamp(1rem, 3vw, 1.75rem);
   mix-blend-mode: var(--contrast);
 }
 
 .title {
   --ff-title: "MuseoModerno", cursive;
-  font-size: 2.75rem;
+  font-size: clamp(2.5rem, 3vw, 5rem);
   font-family: var(--ff-title);
   mix-blend-mode: var(--contrast);
   z-index: 2;
@@ -136,7 +137,7 @@ nav a {
   position: relative;
   color: var(--clr-difference);
   text-decoration: none;
-  font-size: 1.15rem;
+  font-size: clamp(1.15rem, 1.5vw, 1.75rem);
   font-family: var(--ff-nav-link);
   mix-blend-mode: var(--contrast);
   z-index: 1111;
