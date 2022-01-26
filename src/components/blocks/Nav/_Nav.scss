@@ -17,6 +17,8 @@ nav {
         font-size: 1.15rem;
         font-family: var(--ff-nav-link);
 
+        mix-blend-mode: var(--contrast);
+
         z-index: 1111;
 
         &::after {
