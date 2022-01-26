@@ -30,11 +30,11 @@ const Header = () => {
     return(
         <header>
             <Nav />
-            <Svg shape={'square'} className={'svgAbsolute svgBackground svgMedium'} fillColor={'red'} id={'square'} />
-            <Svg shape={'triangle'} className={'svgAbsolute svgBackground svgMedium'} fillColor={'purple'} id={'triangle'} />
-            <Svg shape={'parallelogram'} className={'svgAbsolute svgBackground svgMedium'} fillColor={'salmon'} id={'parallelogram'} />
-            <Svg shape={'circle'} className={'svgAbsolute svgBackground svgMedium'} fillColor={'teal'} id={'circle'} />
-            <Svg shape={'blob'} className={'svgAbsolute svgBackground svgMedium'} fillColor={'#93E9BE'} id={'blob'} />
+            <Svg shape={'square'} className={'svgAbsolute svgBackground svgMedium'} fillColor={'#387780'} id={'square'} />
+            <Svg shape={'triangle'} className={'svgAbsolute svgBackground svgMedium'} fillColor={'#DB93B0'} id={'triangle'} />
+            <Svg shape={'parallelogram'} className={'svgAbsolute svgBackground svgMedium'} fillColor={'#678D58'} id={'parallelogram'} />
+            <Svg shape={'circle'} className={'svgAbsolute svgBackground svgMedium'} fillColor={'#F18805'} id={'circle'} />
+            <Svg shape={'blob'} className={'svgAbsolute svgBackground svgMedium'} fillColor={'#D90429'} id={'blob'} />
             <Title id={"header_title"} content={"Welcome to Infinite"} />
             <Text id={"header_text"} text={"Scroll down and explore"} />
         </header>

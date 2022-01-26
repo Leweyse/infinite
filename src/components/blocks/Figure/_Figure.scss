@@ -1,7 +1,6 @@
 .figure {
-    z-index: 1;
-    
     .img {
+        position: relative;
         width: min(27.5vw, 100%);
 
         aspect-ratio: 1 / 1;
@@ -22,6 +21,7 @@
         &,
         & > * {
             font-family: var(--ff-header-text);
+            mix-blend-mode: var(--contrast);
         }
 
         & > * {

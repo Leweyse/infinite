@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-import { GridRandomTemplate } from "../../../utils";
+import { GridRandomTemplate, ContrastRatio } from "../../../utils";
 import { Img } from "../../../store";
 
 import { Title, Figure, Nav } from "../../blocks";
@@ -56,12 +56,31 @@ export default function Section() {
             value: colorScheme.current.accent1
         },
         {
+            property: '--contrast',
+            value: 'unset'
+        },
+        {
             property: 'grid-template-areas',
             value: template
         }
     ]);
 
     useEffect(() => {
+        const firstContrast = (new ContrastRatio(colorScheme.current.bgColor, colorScheme.current.accent3)).ratio;
+        const secondContrast = (new ContrastRatio(colorScheme.current.bgColor, colorScheme.current.accent1)).ratio;
+
+        if (
+            firstContrast < 1.9 &&
+            secondContrast < 1.9 &&
+            (Math.max(firstContrast, secondContrast) - Math.min(firstContrast, secondContrast) < 0.42))
+        {
+            setValues.current[3].value = 'exclusion';
+        } else if (firstContrast >= 4 || secondContrast >= 4) {
+            setValues.current[3].value = 'unset';
+        } else {
+            setValues.current[3].value = 'color-dodge';
+        }
+
         setValues.current.forEach((element) => {
             sectionRef.current.style.setProperty(element.property, element.value);
         });
