@@ -59,7 +59,7 @@ body,
 }
 
 .text {
-  font-size: clamp(1rem, 3vw, 1.75rem);
+  font-size: clamp(1rem, 1.4vw, 2rem);
   mix-blend-mode: var(--contrast);
 }
 
@@ -194,7 +194,7 @@ header #header_text {
 }
 header #header_title {
   grid-row: 4/5;
-  font-size: clamp(2rem, 10vw, 7rem);
+  font-size: clamp(2rem, 6vw, 7rem);
   font-family: var(--ff-header-title);
 }
 header #header_text {
