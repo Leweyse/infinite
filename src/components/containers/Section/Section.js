@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-import { GridRandomTemplate } from "../../../utils";
+import { GridRandomTemplate, ContrastRatio } from "../../../utils";
 import { Img } from "../../../store";
 
 import { Title, Figure, Nav } from "../../blocks";
