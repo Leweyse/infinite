@@ -16,6 +16,10 @@ header {
         color: var(--clr-difference);
     }
 
+    nav a::after {
+        background: var(--clr-difference);
+    }
+
     #header_title,
     #header_text {
         grid-column: 3 / 5;

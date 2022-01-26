@@ -211,6 +211,9 @@ header {
 header nav a {
   color: var(--clr-difference);
 }
+header nav a::after {
+  background: var(--clr-difference);
+}
 header #header_title,
 header #header_text {
   grid-column: 3/5;
