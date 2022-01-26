@@ -56,6 +56,10 @@ export default function Section() {
             value: colorScheme.current.accent1
         },
         {
+            property: '--contrast',
+            value: 'unset'
+        },
+        {
             property: 'grid-template-areas',
             value: template
         }
