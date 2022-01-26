@@ -57,7 +57,7 @@ export default function Section() {
         },
         {
             property: '--contrast',
-            value: 'unset'
+            value: 'screen'
         },
         {
             property: 'grid-template-areas',
@@ -76,7 +76,7 @@ export default function Section() {
         {
             setValues.current[3].value = 'exclusion';
         } else if (firstContrast >= 4 || secondContrast >= 4) {
-            setValues.current[3].value = 'unset';
+            setValues.current[3].value = 'screen';
         } else {
             setValues.current[3].value = 'color-dodge';
         }
