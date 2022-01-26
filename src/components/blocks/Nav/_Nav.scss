@@ -39,6 +39,7 @@ nav {
             transition: transform 0.15s linear;
         }
 
+        &:focus-visible::after,
         &:hover::after {
             transform: scaleX(1);
         }
