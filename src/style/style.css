@@ -208,6 +208,9 @@ header {
   place-items: center;
   background: var(--clr-black);
 }
+header nav a {
+  color: var(--clr-difference);
+}
 header #header_title,
 header #header_text {
   grid-column: 3/5;

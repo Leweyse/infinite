@@ -12,6 +12,10 @@ header {
 
     background: var(--clr-black);
 
+    nav a {
+        color: var(--clr-difference);
+    }
+
     #header_title,
     #header_text {
         grid-column: 3 / 5;
