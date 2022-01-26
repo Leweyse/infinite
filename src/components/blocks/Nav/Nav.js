@@ -3,6 +3,11 @@ import { Link } from '../';
 const Nav = () => {
     const links = [
         {
+            id: "repo",
+            url: "https://github.com/Leweyse/infinite",
+            content: "Github"
+        },
+        {
             id: "blog",
             url: "https://github.com/Leweyse/infinite/blob/main/README.md",
             content: "Blog"
@@ -11,11 +16,6 @@ const Nav = () => {
             id: "src",
             url: "https://github.com/Leweyse/infinite/blob/main/README.md",
             content: "Sources"
-        },
-        {
-            id: "repo",
-            url: "https://github.com/Leweyse/infinite",
-            content: "Github"
         },
         {
             id: "extra",
