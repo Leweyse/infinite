@@ -11,6 +11,7 @@
 
     grid-template-columns: repeat(14, 1fr);
     grid-template-rows: repeat(9, 1fr);
+    place-items: center;
 
     color: var(--clr-difference);
     background: var(--bg);
