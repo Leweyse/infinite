@@ -37,9 +37,31 @@ export default function Section() {
         accent3: "#" + colorsArray[3]
     });
 
+    const elementsToDisplay = [
+        {
+            value: "img",
+            rows: 3,
+            columns: 3
+        },
+        {
+            value: "txt1",
+            rows: 1,
+            columns: 3
+        },
+        {
+            value: "txt2",
+            rows: 1,
+            columns: 3
+        },
+        {
+            value: "txt3",
+            rows: 1,
+            columns: 3
+        }
+    ];
+
     // Grid template
-    const newGrid = new GridRandomTemplate();
-    const template = newGrid.gridTemplateAreas;
+    const template = (new GridRandomTemplate(elementsToDisplay)).gridTemplateAreas;
 
     // List of values that will be updated
     const setValues = useRef([

@@ -4,7 +4,8 @@ class GridRandomTemplate {
     // Final result is a string
     gridTemplateAreas = "";
 
-    constructor() {
+    constructor(elementsToDisplay = []) {
+        this.elementsToDisplay = elementsToDisplay;
         // Define constants
         this.rowsNum = 9;
         this.columnsNum = 14;
@@ -95,27 +96,17 @@ class GridRandomTemplate {
     }
 
     _generateElementsData() {
-        // Get random coord based on width and height
-        const coordImg = this._helperGetRandomCoord(3, 3);
-        const coordTxt = this._helperGetRandomCoord(1, 3);
+        this.elementsToDisplay.forEach(el => {
+            const coord = this._helperGetRandomCoord(el.rows, el.columns);
 
-        // Use random coords
-        this.areas = [
-            {
-                value: 'img',
-                x: coordImg[0],
-                y: coordImg[1],
-                rows: 3,
-                columns: 3
-            },
-            {
-                value: 'txt',
-                x: coordTxt[0],
-                y: coordTxt[1],
-                rows: 1,
-                columns: 3
-            }
-        ]
+            this.areas.push({
+                value: el.value,
+                x: coord[0],
+                y: coord[1],
+                rows: el.rows,
+                columns: el.columns
+            });
+        })
     }
 
     // Set values in coordinates
