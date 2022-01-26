@@ -257,8 +257,14 @@ main {
 .section .figure-img {
   grid-area: img;
 }
-.section .title-text {
-  grid-area: txt;
+.section .section-text__1 {
+  grid-area: txt1;
+}
+.section .section-text__2 {
+  grid-area: txt2;
+}
+.section .section-text__3 {
+  grid-area: txt3;
 }
 
 .t1 {
