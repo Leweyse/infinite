@@ -112,7 +112,9 @@ export default function Section() {
         <>
             <section ref={sectionRef} className={"section"}>
                 <Nav />
-                <Title content={"A DEV"} className={"title-text"} />
+                <Title content={"I'M A DEV"} className={"section-text__1"} />
+                <Title content={"YOU'RE A DEV"} className={"section-text__2"} />
+                <Title content={"WE'RE DEVS"} className={"section-text__3"} />
                 <Figure imageInfo={imageInfo.current} className={"figure-img"} />
             </section>
         </>

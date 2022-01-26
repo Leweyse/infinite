@@ -22,7 +22,9 @@
         grid-area: img;
     }
 
-    .title-text {
-        grid-area: txt;
+    @for $i from 1 to 4 {
+        .section-text__#{$i} {
+            grid-area: txt#{$i};
+        }
     }
 }
