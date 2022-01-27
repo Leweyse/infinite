@@ -23,8 +23,14 @@
 
 ## **CSS: Custom Properties**
 ### **Colors**
-  - `--clr-black`: #1E1E24
-  - `--clr-difference`: #EBEBD3
+  - Global
+    - `--clr-black`: #1E1E24
+    - `--clr-difference`: #EBEBD3
+
+  - Additional
+    - `--bg`: black
+    - `--txt`: white
+    - `--contrast`: screen
 
 ### **Fonts**
   - `--ff-header-title`: Zen Dots
