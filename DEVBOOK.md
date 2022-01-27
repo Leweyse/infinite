@@ -19,7 +19,7 @@
 ### **Documentation**
   - `update/readme/little_description`
   - `update/devbook/little_description`
-  - `update/devbook/little_description`
+  - `update/devdairy/little_description`
 
 ## **CSS: Custom Properties**
 ### **Colors**
