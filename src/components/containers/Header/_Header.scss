@@ -12,20 +12,29 @@ header {
 
     background: var(--clr-black);
 
+    nav a {
+        color: var(--clr-difference);
+    }
+
+    nav a::after {
+        background: var(--clr-difference);
+    }
+
     #header_title,
     #header_text {
         grid-column: 3 / 5;
 
         color: var(--clr-difference);
         text-align: center;
+
+        z-index: 1;
     }
 
     #header_title {
         grid-row: 4 / 5;
         
+        font-size: clamp(2rem, 6vw, 7rem);
         font-family: var(--ff-header-title);
-        font-size: 5rem;
-        z-index: 1;
     }
 
     #header_text {
@@ -33,7 +42,5 @@ header {
         grid-row: 5 / 6;
 
         font-family: var(--ff-header-text);
-        font-size: 1.25rem;
-        z-index: 1;
     }
 }

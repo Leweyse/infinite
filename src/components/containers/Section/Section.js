@@ -1,11 +1,11 @@
 import { useEffect, useRef } from "react";
-import { getRandom } from "../../../utils";
+
+import { GridRandomTemplate, ContrastRatio } from "../../../utils";
 import { Img } from "../../../store";
 
-import Nav from "../Nav/Nav";
-import { Template1, Template2, Template3 } from  "../Templates";
+import { Title, Figure, Nav } from "../../blocks";
 
-function Section() {
+export default function Section() {
     // IMG data
     const imgData = new Img();
     imgData._setValues(Math.random());
@@ -16,13 +16,13 @@ function Section() {
     const imageColor = imageData.clr;
     const colorsArray = imageData.clrArr;
 
-    // To reference the section element
-    const sectionRef = useRef();
+    // To reference elements
+    const sectionRef = useRef(null);
 
     // Using references to avoid warnings
     // related with useEffect dependencies
     const imageInfo = useRef({
-        url: randImg.urls.small,
+        url: randImg.urls.regular,
         urlRegular: randImg.urls.regular,
         description: randImg.description,
         credit: randImg.user.name,
@@ -37,13 +37,31 @@ function Section() {
         accent3: "#" + colorsArray[3]
     });
 
-    // List of templates
-    // New templates should be added here
-    const templates = [
-        <Template1 imageInfo={imageInfo.current} scheme={colorScheme.current}/>,
-        <Template2 imageInfo={imageInfo.current} scheme={colorScheme.current}/>,
-        <Template3 imageInfo={imageInfo.current} scheme={colorScheme.current}/>
-    ]
+    const elementsToDisplay = [
+        {
+            value: "img",
+            rows: 3,
+            columns: 3
+        },
+        {
+            value: "txt1",
+            rows: 1,
+            columns: 3
+        },
+        {
+            value: "txt2",
+            rows: 1,
+            columns: 3
+        },
+        {
+            value: "txt3",
+            rows: 1,
+            columns: 3
+        }
+    ];
+
+    // Grid template
+    const template = (new GridRandomTemplate(elementsToDisplay)).gridTemplateAreas;
 
     // List of values that will be updated
     const setValues = useRef([
@@ -58,29 +76,63 @@ function Section() {
         {
             property: '--clr-difference',
             value: colorScheme.current.accent1
+        },
+        {
+            property: '--contrast',
+            value: 'screen'
+        },
+        {
+            property: 'grid-template-areas',
+            value: template
         }
     ]);
 
     useEffect(() => {
-        // Update new values for section component
+        const firstContrast = (new ContrastRatio(colorScheme.current.bgColor, colorScheme.current.accent3)).ratio;
+        const secondContrast = (new ContrastRatio(colorScheme.current.bgColor, colorScheme.current.accent1)).ratio;
+
+        if (
+            firstContrast < 1.9 &&
+            secondContrast < 1.9 &&
+            (Math.max(firstContrast, secondContrast) - Math.min(firstContrast, secondContrast) < 0.42))
+        {
+            setValues.current[3].value = 'exclusion';
+        } else if (firstContrast >= 4 || secondContrast >= 4) {
+            setValues.current[3].value = 'screen';
+        } else {
+            setValues.current[3].value = 'color-dodge';
+        }
+
         setValues.current.forEach((element) => {
             sectionRef.current.style.setProperty(element.property, element.value);
-        })
+        });
     }, [])
 
     return (
         <>
-            <section ref={sectionRef} className={'section'}>
+            <section ref={sectionRef} className={"section"}>
                 <Nav />
-                {/* 
-                    Implemented getRandom helper
-                    It returns two possible templates
-                    We choose the first one
-                */}
-                {getRandom(templates, 2)[0]}
+
+                <Title content={"AESTHETICS"} className={"section-text__1"} />
+                <Title content={"ENERGY"} className={"section-text__2"} />
+                <Title content={"AMBITION"} className={"section-text__3"} />
+
+                <Figure imageInfo={imageInfo.current} className={"figure-img"} />
             </section>
         </>
     )
 }
 
-export default Section;
+
+
+
+
+
+
+
+
+
+
+
+
+

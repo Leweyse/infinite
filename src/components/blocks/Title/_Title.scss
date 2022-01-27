@@ -1,6 +1,10 @@
 .title {
     --ff-title: 'MuseoModerno', cursive;
 
-    font-size: 3rem;
+    font-size: clamp(2.5rem, 3vw, 5rem);
     font-family: var(--ff-title);
+
+    mix-blend-mode: var(--contrast);
+
+    z-index: 2;
 }

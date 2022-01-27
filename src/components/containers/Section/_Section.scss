@@ -2,13 +2,29 @@
     --bg: black;
     --txt: white;
     --clr-difference: white;
+    --contrast: unset;
 
+    display: grid;
     position: relative;
     height: 100vh;
     margin: 0;
 
-    color: var(--txt);
+    grid-template-columns: repeat(14, 1fr);
+    grid-template-rows: repeat(9, 1fr);
+    place-items: center;
+
+    color: var(--clr-difference);
     background: var(--bg);
 
     // scroll-snap-align: start;
+
+    .figure-img {
+        grid-area: img;
+    }
+
+    @for $i from 1 to 4 {
+        .section-text__#{$i} {
+            grid-area: txt#{$i};
+        }
+    }
 }

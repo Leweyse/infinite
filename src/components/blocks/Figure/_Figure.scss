@@ -1,6 +1,7 @@
 .figure {
     .img {
-        width: min(27.5vw, 50rem);
+        position: relative;
+        width: min(27.5vw, 100%);
 
         aspect-ratio: 1 / 1;
         object-fit: cover;
@@ -9,40 +10,55 @@
 
     figcaption {
         position: absolute;
-        right: 5px;
-        bottom: 5px;
+        left: 50%;
+        bottom: max(1.5rem, 2.5%);
+        width: 35%;
+
+        color: var(--txt);
+        text-align: center;
+
+        transform: translateX(-50%);
+
+        &,
+        & > * {
+            font-size: clamp(1rem, 1vw, 1.5rem);
+
+            font-family: var(--ff-header-text);
+            mix-blend-mode: var(--contrast);
+        }
+
+        a {
+            position: relative;
+            color: var(--clr-difference);
+            text-decoration: none;
+            outline: none;
+
+            &::after {
+                content: '';
+                position: absolute;
+
+                left: 0;
+                bottom: 0;
+
+                width: 100%;
+                height: 2px;
+
+                background: var(--clr-difference);
+                border-radius: 5px;
+
+                transform: scaleX(1);
+                transition: transform 0.15s linear;
+            }
+
+            &:focus-visible,
+            &:hover {
+                outline: none;
+            }
+
+            &:focus-visible::after,
+            &:hover::after {
+                transform: scaleX(0);
+            }
+        }
     }
 }
-
-// .imgLeft {
-//     margin-left: 5%;
-// }
-
-// .imgRight{
-//     margin-left: auto;
-//     margin-right: 5%;
-// }
-
-// .imgCenter {
-//     margin: auto;
-// }
-
-// .imgSmall {
-//     height: 200px;
-//     width: 200px;
-// }
-
-// .imgMedium{
-//     height: 400px;
-//     width: 400px;
-// }
-
-// .imgLarge {
-//     height: 600px;
-//     width: 600px;
-// }
-
-// .colorTest {
-//     height: 100px;
-//     width: 100px;
-// }

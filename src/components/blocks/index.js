@@ -3,13 +3,13 @@ import Link from './Link/Link';
 import Text from './Text/Text';
 import Title from './Title/Title';
 import Svg from './Svg/Svg';
-import Button from "./Button/Button";
+import Nav from './Nav/Nav';
 
-export { 
+export {
+    Nav, 
     Figure,
     Link,
     Text,
     Title,
     Svg,
-    Button
 };
