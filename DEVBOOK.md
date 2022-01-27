@@ -17,9 +17,9 @@
   - `feature/little_description`
 
 ### **Documentation**
-  - `update/readme/little_description`
-  - `update/devbook/little_description`
-  - `update/devdairy/little_description`
+  - `readme/little_description`
+  - `devbook/little_description`
+  - `devdairy/little_description`
 
 ## **CSS: Custom Properties**
 ### **Colors**
