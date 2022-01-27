@@ -9,12 +9,12 @@ const Nav = () => {
         },
         {
             id: "blog",
-            url: "https://github.com/Leweyse/infinite/blob/main/README.md",
+            url: "https://github.com/Leweyse/infinite/blob/main/DEVDAIRY.md",
             content: "Blog"
         },
         {
             id: "src",
-            url: "https://github.com/Leweyse/infinite/blob/main/DEVDAIRY.md",
+            url: "https://github.com/Leweyse/infinite/blob/main/README.md",
             content: "Sources"
         },
         {
