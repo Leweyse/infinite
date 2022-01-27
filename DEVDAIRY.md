@@ -1,11 +1,16 @@
 # Exploring React JS
 
-### Group project started during our first week off from BeCode training (22/11/2021 - 26/11/2021)
+Group project started during the first week off from BeCode training (22/11/2021 - 26/11/2021).
 
-## **Challenge**
-Using ReactJS for the first time we are trying to build a website that scrolls infinitely by rendering new randomized landing pages.
+## **Content**
+- [Description](#description)
+- [Timeline: First Week](#timeline-first-week)
+- [Challenges](#challenges)
 
-## **Timeline**
+## **Description**
+Using ReactJS for the first time. We are trying to build a website that scrolls infinitely by rendering new randomized landing pages.
+
+## **Timeline: First Week**
 **Day 1 (:date:22/11/2021)**
 * Daryl had the project ready to go by the time we got together for the first briefing
   * using create react app he built the basic app structure
@@ -53,4 +58,14 @@ Using ReactJS for the first time we are trying to build a website that scrolls i
 * Jörg decided to play around with the Svg component in the header and added some `GSap` pizaz to it!
 * Daryl fixed the navigation overlay to be visible on all pages and still keep the functionality of the template below (`position: absolute vs fixed`)
   * He also once again kept the development branch up to date
-* Sven ended the day by writing this Readme!
+* Sven ended the day by writing this DevDairy!
+
+## **Challenges**
+1. Folder Structure
+    - Content will be added soon...
+1. Working with Unsplash API
+    - Content will be added soon...
+1. Implement colors based on image
+    - Content will be added soon...
+1. Randomize position of elements
+    - Content will be added soon...
