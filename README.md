@@ -1,4 +1,4 @@
-# **INFINITE**
+# **Infinite**
 
 ## **Contents**
 - [Description](#description)
@@ -9,7 +9,7 @@
 - [Dev Dairy](DEVDAIRY.md)
 
 ## **Description**
-Render random elements on an infinite scroll. No conflicts such as color contrast or overlapping, getting a beautiful layout.
+Render random elements on an infinite scroll. No conflicts such as color contrast or overlapping, getting a beautiful layout. This project is rendered online at [infinite](https://leweyse.github.io/infinite).
 
 ## **Tools used**
 
@@ -25,21 +25,7 @@ Render random elements on an infinite scroll. No conflicts such as color contras
 ## **Resources**
 - [Unsplash API](https://unsplash.com/developers)
 - [Google Fonts API](https://developers.google.com/fonts/docs/developer_api)
-- [Jeff Goldblum Quote API](https://jeffsum.com/)
-
-## **Features**
-### **Structure**
-    - Get everyones configurations working
-    - Configure sth to format code
-    - Follow import protocol in index files
-
-### **Landing page**
-    - Link to Github repo
-    - Instructions
-    - Scrolls to project
-
-### **Random pages**
-    - Link to Github repo
+- [WordsAPI](https://www.wordsapi.com/)
 
 ## **Run App**
 In the project directory, you can run:
