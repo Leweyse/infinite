@@ -1,12 +1,9 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Section } from '@/components/containers';
 
-let pages = [<Section key={0} />, <Section key={1} />, <Section key={2} />];
-
 const Main = () => {
+    const [sections, addSections] = useState(3);
     const [display, setDisplay] = useState(false);
-
-    let keyRef = useRef(3);
 
     useEffect(() => {
         window.addEventListener('scroll', () => {
@@ -19,12 +16,17 @@ const Main = () => {
     }, []);
 
     if (display) {
-        pages.push(<Section key={keyRef.current} />);
-        keyRef.current++;
+        addSections(sections + 1);
         setDisplay(false);
     }
 
-    return <main id={'main'}>{pages.map((section) => section)}</main>;
+    return (
+        <main id={'main'}>
+            {Array.from(Array(sections)).map((section, idx) => (
+                <Section key={idx} />
+            ))}
+        </main>
+    );
 };
 
 export default Main;
