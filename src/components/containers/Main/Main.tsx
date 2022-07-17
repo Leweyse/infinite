@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react';
+
 import { Section } from '@/components/containers';
+
+import './Main.scss';
 
 const Main = () => {
     const [sections, addSections] = useState(3);

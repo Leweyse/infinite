@@ -1,3 +1,5 @@
+import './Svg.scss';
+
 let path: any = '';
 let className = 'svg ';
 

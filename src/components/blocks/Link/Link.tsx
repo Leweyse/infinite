@@ -1,3 +1,5 @@
+import './Link.scss';
+
 const Link = (props: any) => {
     return (
         <a

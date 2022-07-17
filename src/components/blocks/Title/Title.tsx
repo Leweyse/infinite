@@ -1,5 +1,7 @@
 import { forwardRef, ForwardedRef } from 'react';
 
+import './Title.scss';
+
 const Title = forwardRef(
     (props: any, ref: ForwardedRef<HTMLHeadingElement>) => {
         return (

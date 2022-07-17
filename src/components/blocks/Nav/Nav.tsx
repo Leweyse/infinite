@@ -1,5 +1,7 @@
 import { Link } from '@/components/blocks';
 
+import './Nav.scss';
+
 const Nav = () => {
     const links = [
         {

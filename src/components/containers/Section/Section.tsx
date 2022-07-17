@@ -5,6 +5,8 @@ import ImgService from '@/services/ImgService';
 
 import { Title, Figure, Nav } from '@/components/blocks';
 
+import './Section.scss';
+
 export default function Section() {
     // IMG data
     const imgData = new ImgService();

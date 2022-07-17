@@ -2,6 +2,8 @@ import { forwardRef, ForwardedRef, useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 
+import './Figure.scss';
+
 gsap.registerPlugin(ScrollTrigger);
 
 const Figure = (props: any, ref: ForwardedRef<HTMLElement>) => {

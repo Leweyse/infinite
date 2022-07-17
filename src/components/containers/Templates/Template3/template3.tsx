@@ -3,6 +3,8 @@ import { gsap } from 'gsap';
 
 import { Title, Text } from '@/components/blocks';
 
+import './template3.scss';
+
 const Template3 = (props: any) => {
     let imageInfo = props.imageInfo;
     let colorScheme = props.scheme;

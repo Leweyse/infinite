@@ -1,5 +1,8 @@
 import { useEffect, useRef } from 'react';
+
 import { Figure, Title } from '@/components/blocks';
+
+import './template1.scss';
 
 const Template1 = (props: any) => {
     let imageInfo = props.imageInfo;

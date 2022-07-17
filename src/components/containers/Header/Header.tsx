@@ -2,6 +2,8 @@ import { gsap } from 'gsap';
 
 import { Nav, Title, Text, Svg } from '@/components/blocks';
 
+import './Header.scss';
+
 const Header = () => {
     let timelineSquare = gsap.timeline({ paused: false });
     let timelineCircle = gsap.timeline({ paused: false });
