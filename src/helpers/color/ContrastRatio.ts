@@ -1,5 +1,5 @@
 class ContrastRatio {
-    ratio: number;
+    ratio: number = NaN;
 
     constructor(hex1: string, hex2: string) {
         this._contrast(hex1, hex2);

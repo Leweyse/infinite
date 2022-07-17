@@ -1,15 +1,14 @@
 import hexToHSL from '@/helpers/color/hexToHSL';
 import data from './data/images.json';
+import ColorScheme from 'color-scheme';
 
-// @ts-ignore
-const ColorScheme = require('color-scheme');
 const scheme = new ColorScheme();
 
 class ImgService {
     randImg: any;
-    imageColor: string;
+    imageColor: string = '';
     imageHue: number | undefined;
-    colorsArray: [];
+    colorsArray: [] = [];
 
     _setValues(rand: number) {
         console.log(data.length, rand, Math.floor(data.length * rand));
