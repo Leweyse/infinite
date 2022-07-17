@@ -12,6 +12,8 @@ class ImgService {
     colorsArray: [];
 
     _setValues(rand: number) {
+        console.log(data.length, rand, Math.floor(data.length * rand));
+
         this.randImg = data[Math.floor(rand * data.length)];
         this.imageColor = this.randImg.color;
         this.imageHue = hexToHSL(this.imageColor);
