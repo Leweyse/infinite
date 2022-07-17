@@ -3,6 +3,7 @@ import { gsap } from 'gsap';
 import { Nav, Title, Text, Svg } from '@/components/blocks';
 
 import './Header.scss';
+import { useEffect } from 'react';
 
 const Header = () => {
     let timelineSquare = gsap.timeline({ paused: false });
@@ -11,7 +12,7 @@ const Header = () => {
     let timelineTriangle = gsap.timeline({ paused: false, repeat: -1 });
     let timelineBlob = gsap.timeline({ paused: false, repeat: -1 });
 
-    window.addEventListener('load', () => {
+    useEffect(() => {
         timelineSquare.fromTo(
             '#square',
             { rotation: 10, y: -50 },
